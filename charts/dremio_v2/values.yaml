@@ -38,17 +38,17 @@ coordinator:
   # CPU & Memory
   # Memory allocated to each coordinator, expressed in MB.
   # CPU allocated to each coordinator, expressed in CPU cores.
-  cpu: 15
-  memory: 122800
+  cpu: 2
+  memory: 32000
 
   # This count is used for slave coordinators only.
   # The total number of coordinators will always be count + 1.
-  count: 0
+  count: 1
 
   # Coordinator data volume size (applies to the master coordinator only).
   # In most managed Kubernetes environments (AKS, GKE, etc.), the size of the disk has a direct impact on
   # the provisioned and maximum performance of the disk.
-  volumeSize: 128Gi
+  volumeSize: 1024Gi
 
   # Kubernetes Service Account
   # Uncomment below to use a custom Kubernetes service account for the coordinator.
@@ -128,8 +128,8 @@ executor:
   # CPU & Memory
   # Memory allocated to each executor, expressed in MB.
   # CPU allocated to each executor, expressed in CPU cores.
-  cpu: 15
-  memory: 122800
+  cpu: 2
+  memory: 32000
 
   # Engines
   # Engine names be 47 characters or less and be lowercase alphanumber characters or '-'.
@@ -138,7 +138,7 @@ executor:
   count: 3
 
   # Executor volume size.
-  volumeSize: 128Gi
+  volumeSize: 1024Gi
 
   # Kubernetes Service Account
   # Uncomment below to use a custom Kubernetes service account for executors.

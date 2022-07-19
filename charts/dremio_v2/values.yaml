@@ -14,7 +14,7 @@
 # automatically during redeployments and may negatively impact
 # the cluster.
 image: dremio/dremio-oss
-imageTag: latest
+imageTag: 22.0.0
 
 # Annotations, labels, node selectors, and tolerations
 #
@@ -38,12 +38,12 @@ coordinator:
   # CPU & Memory
   # Memory allocated to each coordinator, expressed in MB.
   # CPU allocated to each coordinator, expressed in CPU cores.
-  cpu: 15
-  memory: 122800
+  cpu: 2
+  memory: 32000
 
   # This count is used for slave coordinators only.
   # The total number of coordinators will always be count + 1.
-  count: 0
+  count: 1
 
   # Coordinator data volume size (applies to the master coordinator only).
   # In most managed Kubernetes environments (AKS, GKE, etc.), the size of the disk has a direct impact on
@@ -128,8 +128,8 @@ executor:
   # CPU & Memory
   # Memory allocated to each executor, expressed in MB.
   # CPU allocated to each executor, expressed in CPU cores.
-  cpu: 15
-  memory: 122800
+  cpu: 2
+  memory: 32000
 
   # Engines
   # Engine names be 47 characters or less and be lowercase alphanumber characters or '-'.
@@ -452,7 +452,7 @@ service:
 
   # If the loadBalancer supports sessionAffinity and you have more than one coordinator,
   # uncomment the below line to enable session affinity.
-  #sessionAffinity: ClientIP
+  sessionAffinity: ClientIP
 
   # Enable the following flag if you wish to route traffic through a shared VPC
   # for the LoadBalancer's external IP.
@@ -463,7 +463,7 @@ service:
   # If you have a static IP allocated for your load balancer, uncomment the following
   # line and set the IP to provide the static IP used for the load balancer.
   # Note: The service type must be set to LoadBalancer for this value to be used.
-  #loadBalancerIP: 0.0.0.0
+  loadBalancerIP: 20.126.172.78
 
 # To use custom storage class, uncomment below.
 # Otherwise the default storage class configured for your K8s cluster is used.
